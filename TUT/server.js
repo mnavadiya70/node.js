@@ -1,28 +1,15 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+
 const path = require("path");
 const { logger } = require("./middleware/logEvents");
+const corsOptions = require("./config/corsOptions");
 const errorHandler = require("./middleware/errorHandler");
 const PORT = process.env.PORT || 3000;
 
 app.use(logger);
 
-const whiteList = [
-  "http://localhost:3000/",
-  "https://www.google.com/",
-  "http://mysite:3000/",
-];
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (whiteList.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed"));
-    }
-  },
-  optionsSuccessStatus: 200,
-};
 app.use(cors(corsOptions));
 
 //in-built middleware
@@ -35,7 +22,8 @@ app.use("/subdir", express.static(path.join(__dirname, "./public")));
 
 //routes
 app.use("/", require("./routes/root"));
-app.use("/subdir", require("./routes/subdir"));
+app.use("/register", require("./routes/register"));
+app.use("/auth", require("./routes/auth"));
 app.use("/employees", require("./routes/api/employees"));
 
 app.all("*", (req, res) => {
