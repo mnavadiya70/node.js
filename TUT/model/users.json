@@ -1,10 +1,1 @@
-[
-  {
-    "username": "Mansi",
-    "password": "$2b$10$iA/CpzvDADsJf3FHqynba.BwAxKiiaFUPqrhZBZbeOEGkktYwf0aW"
-  },
-  {
-    "username": "Mehul",
-    "password": "$2b$10$DvTPO3RFhEZKa4WedvAH3OFAVZ3YnAbuBIfD3VGnzTZ2JEzsSclBK"
-  }
-]
+[{"username":"Mehul","password":"$2b$10$N09m2yMQA778y0AAiM69fO9sNjVFZktQSnfWHGwnmNWtNHtw69QZG"},{"username":"Mansi","password":"$2b$10$gtkQ87v2p4AXQKZ0dd6reOts2IBE5KD2Z.nYAxgGux/ZcT5.zTa/K"}]

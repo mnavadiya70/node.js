@@ -13,7 +13,7 @@ const handleLogin = async (req, res) => {
       .status(400)
       .json({ message: "Username and password are required." });
   }
-  const foundUser = usersDB.users.find((user) => user.username === user);
+  const foundUser = usersDB.users.find((person) => person.username === user);
   if (!foundUser) {
     return res.sendStatus(401); //Unauthorized
   }
