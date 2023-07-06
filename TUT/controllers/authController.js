@@ -41,12 +41,12 @@ const handleLogin = async (req, res) => {
       (person) => person.username !== foundUser.username
     );
     const currentUser = { ...foundUser, refreshToken };
-    usersDB.setUsers([...otherUsers, currentUser]);
+    const users = [...otherUsers, currentUser];
+    usersDB.setUsers([...users]);
     await fsPromises.writeFile(
       path.join(__dirname, "..", "model", "users.json"),
-      JSON.stringify(usersDB.users)
+      JSON.stringify(users)
     );
-    console.log(usersDB.users, currentUser);
     res.cookie("jwt", refreshToken, {
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,
